@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Admin Panel - Mentor Allocation System</title>
+</head>
+<body>
+    <header>
+        <h1>Admin Panel - Mentor Allocation System</h1>
+        <nav>
+            <ul>
+                <li><a href="logout.html" class="logout-button">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h2>Manage Mentors</h2>
+
+        <section>
+            <h3>Add Mentor</h3>
+            <form id="addMentorForm">
+                <div class="form-group">
+                    <label for="mentorName">Name:</label>
+                    <input type="text" id="mentorName" name="mentorName" required>
+                </div>
+                <div class="form-group">
+                    <label for="mentorEmail">Email:</label>
+                    <input type="email" id="mentorEmail" name="mentorEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="mentorExpertise">Expertise:</label>
+                    <input type="text" id="mentorExpertise" name="mentorExpertise" required>
+                </div>
+                <button type="submit">Add Mentor</button>
+            </form>
+        </section>
+
+        <section>
+            <h3>Existing Mentors</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Expertise</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="mentorsTableBody">
+                    <!-- Existing mentors will be dynamically added here -->
+                </tbody>
+            </table>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2023 Mentor Allocation System</p>
+    </footer>
+
+    <script>
+        // Example data for existing mentors
+        const mentors = [
+  { "name": "Dr.Roohi Sille","email":"cheerag2005@gmail.com","expertise":"Artificial Intelligence"},
+  { "name": "Achala Shakya", "email": "cheerag2005@gmail.com", "expertise": "Artificial Intelligence" },
+  { "name": "Mohammad Ahsan", "email": "cheerag2005@gmail.com", "expertise": "Artificial Intelligence" },
+  { "name": "Sonal Talreja", "email": "cheerag2005@gmail.com", "expertise": "Artificial Intelligence" },
+  { "name": "Kotha Venugopalachary", "email": "cheerag2005@gmail.com", "expertise": "Artificial Intelligence" },
+  { "name": "Pranshu Srivastava", "email": "cheerag2005@gmail.com", "expertise": "Artificial Intelligence" },
+  { "name": "Debanjan Ghosh", "email": "cheerag2005@gmail.com", "expertise": "Artificial Intelligence" },
+  { "name": "Pawan Singh Koranga", "email": "cheerag2005@gmail.com", "expertise": "Artificial Intelligence" },
+  { "name": "Rohitesh Kumar", "email": "cheerag2005@gmail.com", "expertise": "Artificial Intelligence" },
+  { "name": "Suvojit Dhara", "email": "cheerag2005@gmail.com", "expertise": "Artificial Intelligence" },
+  { "name": "Aishik Biswas", "email": "cheerag2005@gmail.com", "expertise": "Artificial Intelligence" },
+  { "name": "Sandeep Chand Kumain", "email": "cheerag2005@gmail.com", "expertise": "Artificial Intelligence" },
+  { "name": "Pragya Katyayan", "email": "cheerag2005@gmail.com", "expertise": "Artificial Intelligence" },
+  { "name": "Upasana", "email": "cheerag2005@gmail.com", "expertise": "Artificial Intelligence" },
+  { "name": "Kaushlendra Kumar Sinha", "email": "cheerag2005@gmail.com", "expertise": "Artificial Intelligence" },
+  { "name": "Rakesh Ranjan", "email": "cheerag2005@gmail.com", "expertise": "Artificial Intelligence" }
+
+];
+
+
+        // Function to populate the mentors table
+        function populateMentorsTable() {
+            const tableBody = document.getElementById('mentorsTableBody');
+            tableBody.innerHTML = ''; // Clear existing entries
+            mentors.forEach((mentor, index) => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${mentor.name}</td>
+                    <td>${mentor.email}</td>
+                    <td>${mentor.expertise}</td>
+                    <td><button onclick="removeMentor(${index})">Remove</button></td>
+                `;
+                tableBody.appendChild(row);
+            });
+        }
+
+        // Function to add a mentor
+        document.getElementById('addMentorForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const name = document.getElementById('mentorName').value;
+            const email = document.getElementById('mentorEmail').value;
+            const expertise = document.getElementById('mentorExpertise').value;
+
+            mentors.push({ name, email, expertise });
+            populateMentorsTable();
+            this.reset(); // Reset the form
+        });
+
+        // Function to remove a mentor
+        function removeMentor(index) {
+            mentors.splice(index, 1);
+            populateMentorsTable();
+        }
+
+        // Call the function to populate the table on page load
+        document.addEventListener('DOMContentLoaded', populateMentorsTable);
+    </script>
+</body>
+</html>

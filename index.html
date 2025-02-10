@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mentor Allocation System</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        body {
+            background: linear-gradient(180deg, #5E3B76, #D2C6DC);
+            color: #333;
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+        }
+        header {
+            background-color: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        h1, h2, h3 {
+            margin: 0;
+        }
+        h1 {
+            font-size: 2.5rem;
+        }
+        h2 {
+            font-size: 2rem;
+        }
+        h3 {
+            font-size: 1.5rem;
+        }
+        .btn-primary {
+            background-color: #5E3B76;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background 0.3s, transform 0.2s;
+        }
+        .btn-primary:hover {
+            background-color: #4C2A61;
+            transform: scale(1.05);
+        }
+        .hero-image {
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+            text-transform: uppercase;
+        }
+        tbody tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            h2 {
+                font-size: 1.5rem;
+            }
+            h3 {
+                font-size: 1.25rem;
+            }
+            .btn-primary {
+                padding: 8px 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="shadow-md py-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-3xl font-bold text-gray-800">Mentor Allocation System</h1>
+            <nav>
+                <ul class="flex space-x-6">
+                    <li><a href="index.html" class="text-gray-700 hover:text-gray-900">Home</a></li>
+                    <li><a href="mentors.html" class="text-gray-700 hover:text-gray-900">Find Mentors</a></li>
+                    <li><a href="group-register.html" class="text-gray-700 hover:text-gray-900">Group Register</a></li>
+                    <li><a href="logout.html" class="text-red-500 hover:text-red-700">Logout</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto mt-12 p-8 bg-white rounded-lg shadow-lg">
+        <!-- Hero Section -->
+        <section class="text-center mb-8">
+            <h2 class="text-4xl font-bold text-gray-800">Welcome to the Mentor Allocation System</h2>
+            <p class="text-gray-600 mt-4">Find the perfect mentor to guide your projects!</p>
+            <div class="mt-6">
+                <img src="https://www.schudio.com/wp-content/uploads/2024/08/welcome-page-blog-header.jpg" alt="Mentorship" class="hero-image mx-auto" width="500" height="200">
+            </div>
+        </section>
+
+        <!-- Group Members Table -->
+        <section>
+            <h3 class="text-2xl font-bold text-gray-
